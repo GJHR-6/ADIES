@@ -88,6 +88,9 @@ public class Citas extends javax.swing.JFrame {
         cbxEspecialidad = new javax.swing.JComboBox<>();
         cbxSexo = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
+        btnModificar = new javax.swing.JButton();
+        btnEliminar = new javax.swing.JButton();
+        btnLimpiar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -167,6 +170,27 @@ public class Citas extends javax.swing.JFrame {
             }
         });
 
+        btnModificar.setText("Modificar");
+        btnModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModificarActionPerformed(evt);
+            }
+        });
+
+        btnEliminar.setText("Eliminar");
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
+
+        btnLimpiar.setText("Limpiar");
+        btnLimpiar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnLimpiarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -175,7 +199,7 @@ public class Citas extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGap(302, 302, 302))
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(23, 23, 23)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
@@ -220,11 +244,15 @@ public class Citas extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtEdad, javax.swing.GroupLayout.DEFAULT_SIZE, 239, Short.MAX_VALUE)
                             .addComponent(cbxSexo, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 127, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnGuardar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(83, 83, 83))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 125, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(btnGuardar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnModificar)
+                    .addComponent(btnEliminar)
+                    .addComponent(btnLimpiar))
+                .addGap(81, 81, 81))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -256,15 +284,17 @@ public class Citas extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(cbxEspecialidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cbxEspecialidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnModificar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel7)
                     .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(9, 9, 9)
+                .addGap(8, 8, 8)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
-                    .addComponent(txtEdad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtEdad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnEliminar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
@@ -272,7 +302,8 @@ public class Citas extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
-                    .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnLimpiar))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
@@ -281,7 +312,7 @@ public class Citas extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel12)
                     .addComponent(txtHora, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(93, Short.MAX_VALUE))
+                .addContainerGap(85, Short.MAX_VALUE))
         );
 
         pack();
@@ -315,7 +346,7 @@ public class Citas extends javax.swing.JFrame {
             
             con=getConection();
             ps=con.prepareStatement("INSERT INTO citas (CitasID,PacienteID,Nombre,CentroMedico,Especialidad,Direccion,Edad,Sexo,Telefono,Fecha,Hora) VALUES(?,?,?,?,?,?,?,?,?,?,?) ");
-            ps.setString(1,txtPacienteID.getText());
+            ps.setString(1,txtCitasID.getText());
             ps.setString(2,txtPacienteID.getText());
             ps.setString(3,txtNombre.getText());
             ps.setString(4,cbxCentroMedico.getSelectedItem().toString());
@@ -357,9 +388,9 @@ public class Citas extends javax.swing.JFrame {
         try{
             
             con=getConection();
-            ps=con.prepareStatement("SELECT * FROM citas WHERE Nombre = ?");
+            ps=con.prepareStatement("SELECT * FROM citas WHERE Nombre = ? AND Fecha = ?");
             ps.setString(1, txtNombre.getText());
-            
+            ps.setString(2, txtFecha.getText());
             rs = ps.executeQuery();
             
             if(rs.next()){
@@ -382,6 +413,70 @@ public class Citas extends javax.swing.JFrame {
             System.err.println(e);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
+        Connection con =null;
+        
+        try{
+            
+            con=getConection();
+            ps=con.prepareStatement("UPDATE citas SET CitasID=?, PacienteID=?, Nombre=?, CentroMedico=?, Especialidad=?, Direccion=?, Edad=?, Sexo=?, Telefono=?, Fecha=?, Hora=? WHERE Nombre=? AND Fecha=?");
+            ps.setString(1,txtCitasID.getText());
+            ps.setString(2,txtPacienteID.getText());
+            ps.setString(3,txtNombre.getText());
+            ps.setString(4,cbxCentroMedico.getSelectedItem().toString());
+            ps.setString(5,cbxEspecialidad.getSelectedItem().toString());
+            ps.setString(6,txtDireccion.getText());
+            ps.setString(7,txtEdad.getText());
+            ps.setString(8,cbxSexo.getSelectedItem().toString());
+            ps.setString(9,txtTelefono.getText());
+            ps.setDate(10, Date.valueOf(txtFecha.getText()));
+            ps.setString(11,txtHora.getText());
+            ps.setString(12,txtNombre.getText());
+            ps.setDate(13, Date.valueOf(txtFecha.getText()));
+            int res = ps.executeUpdate();
+            
+            if(res > 0){
+                JOptionPane.showMessageDialog(null, "Paciente Modificado");
+                limpiarCajas();
+            } else {
+                JOptionPane.showMessageDialog(null, "Error al modificar paciente");
+                limpiarCajas();
+            }
+            con.close();
+        } catch(Exception e){
+            System.err.println(e);
+        }
+       
+    }//GEN-LAST:event_btnModificarActionPerformed
+
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+         Connection con =null;
+        
+        try{
+            
+            con=getConection();
+            ps=con.prepareStatement("DELETE FROM citas WHERE Nombre=? AND Fecha=?");
+            ps.setString(1,txtNombre.getText());
+            ps.setDate(2, Date.valueOf(txtFecha.getText()));
+            int res = ps.executeUpdate();
+            
+            if(res > 0){
+                JOptionPane.showMessageDialog(null, "Paciente Eliminado");
+                limpiarCajas();
+            } else {
+                JOptionPane.showMessageDialog(null, "Error al eliminar paciente");
+                limpiarCajas();
+            }
+            con.close();
+        } catch(Exception e){
+            System.err.println(e);
+        }
+    }//GEN-LAST:event_btnEliminarActionPerformed
+
+    private void btnLimpiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLimpiarActionPerformed
+        limpiarCajas();
+    }//GEN-LAST:event_btnLimpiarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -419,7 +514,10 @@ public class Citas extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnGuardar;
+    private javax.swing.JButton btnLimpiar;
+    private javax.swing.JButton btnModificar;
     private javax.swing.JComboBox<String> cbxCentroMedico;
     private javax.swing.JComboBox<String> cbxEspecialidad;
     private javax.swing.JComboBox<String> cbxSexo;
