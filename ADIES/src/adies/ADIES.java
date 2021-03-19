@@ -17,6 +17,7 @@ public class ADIES {
     public static void main(String[] args) {
         // TODO code application logic here
         //Hola, bienvenido no hemos hecho nada del proyecto :D
+        new Principal().setVisible(true);
     }
     
 }
