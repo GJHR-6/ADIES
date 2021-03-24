@@ -48,7 +48,6 @@ public class frmHistorial extends javax.swing.JFrame {
       try{
           Class.forName("com.mysql.cj.jdbc.Driver");
           con = (Connection) DriverManager.getConnection(URL,USERNAME,PASSWORD);
-          JOptionPane.showMessageDialog(null, "Conectada");
       }catch (Exception e){
           System.out.println(e);
       }
