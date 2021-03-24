@@ -94,6 +94,7 @@ public class frmEspecialidades extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tb_especialidades);
 
+        jButton2.setBackground(new java.awt.Color(51, 204, 0));
         jButton2.setText("Atras");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
