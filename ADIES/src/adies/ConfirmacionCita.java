@@ -20,6 +20,7 @@ public class ConfirmacionCita extends javax.swing.JFrame {
      * Creates new form ConfirmacionCita
      */
     public ConfirmacionCita() {
+        
         initComponents();
         
     }
@@ -29,6 +30,7 @@ String Fecha;
 String Hora;
 Citas cita = new Citas();
     public ConfirmacionCita(String paciente, String Medico, String Fecha, String Hora, Citas cita) {
+        getContentPane().setBackground(new java.awt.Color(255,255,255));
         this.paciente = paciente;
         this.Medico = Medico;
         this.Fecha = Fecha;

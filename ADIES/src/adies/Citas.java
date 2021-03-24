@@ -93,6 +93,7 @@ public class Citas extends javax.swing.JFrame {
   }
   
     public Citas() {
+        getContentPane().setBackground(new java.awt.Color(255,255,255));
         initComponents();
     }
 

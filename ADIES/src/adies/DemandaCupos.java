@@ -5,6 +5,7 @@
  */
 package adies;
 
+
 import static adies.frmHistorial.getConection;
 import java.awt.Image;
 import java.sql.Connection;
@@ -21,23 +22,21 @@ import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
 import org.jfree.data.general.DefaultPieDataset;
 
-
 /**
  *
- * @author moise
+ * @author guill
  */
-public class frmConsumoMedicamentos extends javax.swing.JFrame {
+public class DemandaCupos extends javax.swing.JFrame {
 
     /**
-     * Creates new form frmConsumoMedicamentos
+     * Creates new form DemandaCupos
      */
-    public frmConsumoMedicamentos() {
+    public DemandaCupos() {
         getContentPane().setBackground(new java.awt.Color(255,255,255));
         initComponents();
         jButton1.setIcon(setIcono("/imagenes/logo_nuevo.jpeg",jButton1));
         model = (DefaultTableModel) this.tb_consumomed.getModel();
     }
-   
     DefaultTableModel model;
     public static final String URL = "jdbc:mysql://127.0.01:3306/ADIES";
     public static final String USERNAME = "root";
@@ -63,9 +62,9 @@ public class frmConsumoMedicamentos extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jButton1 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tb_consumomed = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -75,19 +74,19 @@ public class frmConsumoMedicamentos extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/logo_nuevo.jpeg"))); // NOI18N
+
         tb_consumomed.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null}
             },
             new String [] {
-                "Medicamento", "Existencia"
+                "Centro Médico", "Cupos disponibles"
             }
         ));
         jScrollPane1.setViewportView(tb_consumomed);
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/logo_nuevo.jpeg"))); // NOI18N
-
-        jButton2.setText("Atras");
+        jButton2.setText("Atrás");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -99,23 +98,23 @@ public class frmConsumoMedicamentos extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
-                .addContainerGap(485, Short.MAX_VALUE))
+                .addContainerGap(444, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addGap(33, 33, 33)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 35, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -123,19 +122,18 @@ public class frmConsumoMedicamentos extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        // TODO add your handling code here:
-        model.setRowCount(0);
+         model.setRowCount(0);
         Connection con = null;
         ResultSet result = null;
         try {
             con=getConection();
-            PreparedStatement st= con.prepareStatement("select Nombre, Existencias from adies.almacen");
+            PreparedStatement st= con.prepareStatement("select Nombre, CuposDisponibles from adies.centromedico");
             result=st.executeQuery();
             
             while(result.next()){
                 model.addRow(new Object[]
                 {result.getString("Nombre"),
-                 result.getInt("Existencias")
+                 result.getInt("CuposDisponibles")
                  });
                 
             }
@@ -144,7 +142,7 @@ public class frmConsumoMedicamentos extends javax.swing.JFrame {
              for(int i=0; i<this.tb_consumomed.getRowCount(); i++){
                  dtsc.setValue(this.tb_consumomed.getValueAt(i, 0).toString(), Integer.parseInt(this.tb_consumomed.getValueAt(i, 1).toString()));
              }
-             JFreeChart ch = ChartFactory.createPieChart("Grafico Consumo de Medicamentos", dtsc, true, true, false);
+             JFreeChart ch = ChartFactory.createPieChart("Grafico Disponibilidad de cupos en centros médicos", dtsc, true, true, false);
              ChartPanel cp = new ChartPanel(ch);
              add(cp);
              cp.setBounds(350,30,400,350);
@@ -154,12 +152,10 @@ public class frmConsumoMedicamentos extends javax.swing.JFrame {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage().toString());
         }      
-        
     }//GEN-LAST:event_formWindowOpened
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-        frmReporte abrir = new frmReporte();
+       frmReporte abrir = new frmReporte();
         abrir.setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -181,24 +177,23 @@ public class frmConsumoMedicamentos extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(frmConsumoMedicamentos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DemandaCupos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(frmConsumoMedicamentos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DemandaCupos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(frmConsumoMedicamentos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DemandaCupos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(frmConsumoMedicamentos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DemandaCupos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new frmConsumoMedicamentos().setVisible(true);
+                new DemandaCupos().setVisible(true);
             }
         });
     }
-    
     public Icon setIcono(String url, JButton boton){
         ImageIcon icon = new ImageIcon(getClass().getResource(url));
         
@@ -210,7 +205,6 @@ public class frmConsumoMedicamentos extends javax.swing.JFrame {
         
         return icono;
     } 
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;

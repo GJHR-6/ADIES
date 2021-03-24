@@ -24,6 +24,7 @@ public class Historial extends javax.swing.JFrame {
     ResultSet rs;
 
   public static Connection getConection() {
+      
       Connection con = null;
       
       try{
@@ -48,6 +49,7 @@ public class Historial extends javax.swing.JFrame {
       txtFecha.setText(null);
   }
     public Historial() {
+        getContentPane().setBackground(new java.awt.Color(255,255,255));
         initComponents();
     }
 

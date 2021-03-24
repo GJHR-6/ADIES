@@ -50,6 +50,7 @@ public class Almacen extends javax.swing.JFrame {
       txtExistencias.setText(null);
   }
     public Almacen() {
+        getContentPane().setBackground(new java.awt.Color(255,255,255));
         initComponents();
     }
 

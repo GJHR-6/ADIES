@@ -33,6 +33,7 @@ public class frmEspecialidades extends javax.swing.JFrame {
      * Creates new form frmEspecialidades
      */
     public frmEspecialidades() {
+        getContentPane().setBackground(new java.awt.Color(255,255,255));
         initComponents();
         jButton1.setIcon(setIcono("/imagenes/logo_nuevo.jpeg",jButton1));
         model = (DefaultTableModel) this.tb_especialidades.getModel();

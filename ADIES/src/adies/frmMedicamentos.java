@@ -28,6 +28,7 @@ public class frmMedicamentos extends javax.swing.JFrame {
      */
     public frmMedicamentos() {
         initComponents();
+        getContentPane().setBackground(new java.awt.Color(255,255,255));
         model = (DefaultTableModel) this.tb_medicamentos.getModel();
         jButton1.setIcon(setIcono("/imagenes/logo_nuevo.jpeg",jButton1));
     }
@@ -101,7 +102,7 @@ public class frmMedicamentos extends javax.swing.JFrame {
                 {null, null, null, null, null, null}
             },
             new String [] {
-                "Almacen ID", "Nombre", "Descripcion", "Existencias", "Fecha Vencimiento", "Fecha"
+                "N° de almacen", "Nombre", "Descripcion", "Existencias", "Fecha Vencimiento", "Fecha"
             }
         ));
         jScrollPane1.setViewportView(tb_medicamentos);

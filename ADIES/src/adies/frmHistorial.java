@@ -31,6 +31,7 @@ public class frmHistorial extends javax.swing.JFrame {
      * Creates new form frmHistorial
      */
     public frmHistorial() {
+        getContentPane().setBackground(new java.awt.Color(255,255,255));
         initComponents();
         model = (DefaultTableModel) this.tb_historialpaciente.getModel();
         jButton1.setIcon(setIcono("/imagenes/logo_nuevo.jpeg",jButton1));

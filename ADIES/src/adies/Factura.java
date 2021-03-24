@@ -46,6 +46,7 @@ public class Factura extends javax.swing.JFrame {
       txtTotal.setText(null);
   }
     public Factura() {
+        getContentPane().setBackground(new java.awt.Color(255,255,255));
         initComponents();
     }
 
