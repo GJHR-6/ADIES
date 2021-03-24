@@ -86,6 +86,7 @@ public class DemandaCupos extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tb_consumomed);
 
+        jButton2.setBackground(new java.awt.Color(51, 204, 0));
         jButton2.setText("Atrás");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

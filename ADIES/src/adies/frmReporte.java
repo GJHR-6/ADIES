@@ -5,7 +5,9 @@
  */
 package adies;
 
+import java.awt.Color;
 import java.awt.Image;
+import static javafx.scene.paint.Color.color;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -43,6 +45,7 @@ public class frmReporte extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jButton1.setBackground(new java.awt.Color(51, 204, 0));
         jButton1.setText("Historial de Pacientes");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -50,13 +53,16 @@ public class frmReporte extends javax.swing.JFrame {
             }
         });
 
+        jButton2.setBackground(new java.awt.Color(51, 204, 0));
         jButton2.setText("Almacen");
+        jButton2.setBorder(null);
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
             }
         });
 
+        jButton3.setBackground(new java.awt.Color(51, 204, 0));
         jButton3.setText("Consumo Medicamentos");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -64,6 +70,7 @@ public class frmReporte extends javax.swing.JFrame {
             }
         });
 
+        jButton4.setBackground(new java.awt.Color(51, 204, 0));
         jButton4.setText("Consulta Especialidades");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -71,6 +78,7 @@ public class frmReporte extends javax.swing.JFrame {
             }
         });
 
+        jButton5.setBackground(new java.awt.Color(51, 204, 0));
         jButton5.setText("Menu");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -80,6 +88,7 @@ public class frmReporte extends javax.swing.JFrame {
 
         jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/logo_nuevo.jpeg"))); // NOI18N
 
+        jButton11.setBackground(new java.awt.Color(51, 204, 0));
         jButton11.setText("Disponibilidad Centros");
         jButton11.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -148,6 +157,7 @@ public class frmReporte extends javax.swing.JFrame {
         frmMedicamentos abrir = new frmMedicamentos();
         abrir.setVisible(true);
         this.setVisible(false);
+  
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed

@@ -87,6 +87,7 @@ public class frmConsumoMedicamentos extends javax.swing.JFrame {
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/logo_nuevo.jpeg"))); // NOI18N
 
+        jButton2.setBackground(new java.awt.Color(51, 204, 0));
         jButton2.setText("Atras");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

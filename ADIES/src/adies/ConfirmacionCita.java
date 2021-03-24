@@ -88,6 +88,7 @@ Citas cita = new Citas();
 
         jLabel9.setText("jLabel9");
 
+        jButton1.setBackground(new java.awt.Color(51, 204, 0));
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton1.setText("Guardar");
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -101,6 +102,7 @@ Citas cita = new Citas();
             }
         });
 
+        jButton2.setBackground(new java.awt.Color(51, 204, 0));
         jButton2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton2.setText("Atrás");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
