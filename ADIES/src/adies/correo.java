@@ -47,7 +47,7 @@ public class correo extends javax.swing.JFrame {
         c.setContrasea("@ierh123");
         c.setUsuarioCorreo("ierhcm1@gmail.com");
         c.setAsunto(jLabel1.getText());
-        c.setMensaje(jLabel7.getText()+" "+jLabel8.getText()+" "+jLabel9.getText());
+        c.setMensaje("Paciente: "+jLabel7.getText()+" Fecha: "+jLabel8.getText()+" Hora: "+jLabel9.getText()+" Motivo: "+jTextField3.getText());
         c.setDestino(jLabel10.getText());
         /*c.setNombreArchivo("logo_nuevo.jpeg");
         c.setRutaArchivo("logo_nuevo.jpeg");*/
@@ -104,7 +104,7 @@ public class correo extends javax.swing.JFrame {
 
         jLabel3.setText("Paciente:");
 
-        jLabel4.setText("Motivo:");
+        jLabel4.setText("Observaciones:");
 
         jButton1.setBackground(new java.awt.Color(51, 204, 0));
         jButton1.setText("Atrás");
