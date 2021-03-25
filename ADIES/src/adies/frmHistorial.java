@@ -70,6 +70,8 @@ public class frmHistorial extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         tb_historialpaciente = new javax.swing.JTable();
+        jLabel3 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -106,13 +108,17 @@ public class frmHistorial extends javax.swing.JFrame {
 
         tb_historialpaciente.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null}
+                {null, null, null, null, null, null, null}
             },
             new String [] {
-                "Historial ID", "Paciente ID", "Nombre", "Centro Medico", "Especialidad", "Sintomas", "Medicamentos Recetado", "Fecha"
+                "No.", "Nombre", "Centro Medico", "Especialidad", "Sintomas", "Medicamentos Recetado", "Fecha"
             }
         ));
         jScrollPane1.setViewportView(tb_historialpaciente);
+
+        jLabel3.setText("Nombre del paciente:");
+
+        jTextField1.setText("Eduard Vasquez");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -131,6 +137,12 @@ public class frmHistorial extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1)
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(36, 36, 36)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -148,7 +160,11 @@ public class frmHistorial extends javax.swing.JFrame {
                         .addGap(31, 31, 31)
                         .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 362, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
 
@@ -173,13 +189,12 @@ public class frmHistorial extends javax.swing.JFrame {
         ResultSet result = null;
         try {
             con=getConection();
-            PreparedStatement st= con.prepareStatement("select * from adies.historial");
+            PreparedStatement st= con.prepareStatement("select HistorialID,Nombre,CentroMedico,Especialidad,Sintomas,MedicamentosRecetado,Fecha from adies.historial");
             result=st.executeQuery();
             
             while(result.next()){
                 model.addRow(new Object[]
                 {result.getInt("HistorialID"),
-                 result.getInt("PacienteID"),
                  result.getString("Nombre"),
                  result.getString("CentroMedico"),
                  result.getString("Especialidad"),
@@ -248,7 +263,9 @@ public class frmHistorial extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JTable tb_historialpaciente;
     // End of variables declaration//GEN-END:variables
 

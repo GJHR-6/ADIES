@@ -86,7 +86,7 @@ public class frmMedicamentos extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Medicamentos");
+        jLabel1.setText("Inventario de Medicamentos");
 
         jButton2.setBackground(new java.awt.Color(51, 204, 0));
         jButton2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -103,7 +103,7 @@ public class frmMedicamentos extends javax.swing.JFrame {
                 {null, null, null, null, null, null}
             },
             new String [] {
-                "N° de almacen", "Nombre", "Descripcion", "Existencias", "Fecha Vencimiento", "Fecha"
+                "Codigo del Producto", "Nombre", "Descripcion", "Existencias", "Fecha Vencimiento", "Fecha"
             }
         ));
         jScrollPane1.setViewportView(tb_medicamentos);
