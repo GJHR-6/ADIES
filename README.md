@@ -25,3 +25,10 @@ ADIES es una aplicación diseñada para optimizar la gestión de citas médicas 
 1. **Clonar el repositorio:**
    ```bash
    git clone https://github.com/GJHR-6/ADIES.git
+<p>
+  <img src="screenshot1.png" width="250">
+   --- 
+  <img src="screenshot2.png" width="250">
+   ---
+  <img src="screenshot3.png" width="250">
+</p>
